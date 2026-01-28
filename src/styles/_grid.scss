@@ -1,0 +1,39 @@
+/* Grid System - Swiss Style Alignment */
+@use './variables' as *;
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat($grid-cols, 1fr);
+    gap: $grid-gutter;
+
+    &.align-center {
+        align-items: center;
+    }
+}
+
+// Utility classes for column spanning
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        grid-column: span $i;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-video {
+        width: 100%;
+    }
+}

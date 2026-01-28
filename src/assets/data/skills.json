@@ -1,0 +1,100 @@
+[
+    {
+        "id": "root_eng",
+        "label": "Engineering",
+        "category": "Engineering",
+        "color": "#0044CC",
+        "size": 1.0,
+        "children": [
+            {
+                "id": "eng_frontend",
+                "label": "Frontend",
+                "size": 0.8,
+                "description": "Vue.js / React / Three.js を駆使した、没入感のあるWeb体験の実装。",
+                "achievements": [
+                    "大規模SPA開発",
+                    "WebGLパフォーマンスチューニング",
+                    "アクセシビリティ対応"
+                ]
+            },
+            {
+                "id": "eng_backend",
+                "label": "Backend",
+                "size": 0.7,
+                "description": "Node.js / Go / Python による堅牢でスケーラブルなAPI設計。",
+                "achievements": [
+                    "マイクロサービスアーキテクチャ",
+                    "高負荷トラフィック対策"
+                ]
+            },
+            {
+                "id": "eng_web3",
+                "label": "Web3",
+                "size": 0.9,
+                "description": "Solidity / Smart Contracts の実装と監査。ブロックチェーン技術の社会実装。",
+                "achievements": [
+                    "NFTマーケットプレイス開発",
+                    "収益実績: 1.52 ETH"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "root_creative",
+        "label": "Creative",
+        "category": "Creative",
+        "color": "#CC0044",
+        "size": 1.0,
+        "children": [
+            {
+                "id": "cre_ui",
+                "label": "UI Design",
+                "size": 0.8,
+                "description": "Figma / Adobe XD。スイス・スタイルに基づいた、機能的で美しいインターフェース設計。",
+                "achievements": [
+                    "デザインシステム構築",
+                    "デザイン・トークン設計"
+                ]
+            },
+            {
+                "id": "cre_motion",
+                "label": "Motion",
+                "size": 0.7,
+                "description": "After Effects / Blender。ユーザーの感情を動かすマイクロインタラクション。",
+                "achievements": [
+                    "ロゴモーション制作",
+                    "3Dアセットモデリング"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "root_biz",
+        "label": "Business",
+        "category": "Business",
+        "color": "#44CC00",
+        "size": 1.0,
+        "children": [
+            {
+                "id": "biz_planning",
+                "label": "Planning",
+                "size": 0.8,
+                "description": "サービスデザイン思考に基づく、ユーザーの本質的課題の解決策の立案。",
+                "achievements": [
+                    "ユーザーリサーチ",
+                    "KPI/KGI設計"
+                ]
+            },
+            {
+                "id": "biz_marketing",
+                "label": "Marketing",
+                "size": 0.7,
+                "description": "SEO / SNS戦略。技術とクリエイティブを市場価値に変換する。",
+                "achievements": [
+                    "note: 月間1万PV達成",
+                    "Twitterエンゲージメント戦略"
+                ]
+            }
+        ]
+    }
+]

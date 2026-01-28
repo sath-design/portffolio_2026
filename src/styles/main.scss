@@ -1,0 +1,19 @@
+// Main SCSS entry point
+@use './variables' as *;
+@use './mixins' as *;
+@use './typography';
+@use './grid';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: $color-bg;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
