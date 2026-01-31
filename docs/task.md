@@ -78,7 +78,14 @@
 - [x] 最終検証 (ビルドチェック)
 
 ## GitHub連携と公開設定
-- [/] .gitignoreの設定 (機密情報の除外)
-- [ ] ローカルGitリポジトリの初期化とコミット
-- [ ] GitHubリポジトリの作成 (User Action)
-- [ ] リモートオリジンの追加とプッシュ
+- [x] .gitignoreの設定 (機密情報の除外)
+- [x] ローカルGitリポジトリの初期化とコミット
+- [x] GitHubリポジトリの作成 (User Action)
+- [x] GitHubリポジトリの作成 (User Action)
+- [x] リモートオリジンの追加とプッシュ
+
+## パフォーマンス改善 (PageSpeed Insights対応)
+- [x] 現状分析 (Render Blocking, Cache, Reflow)
+- [x] Firebase Hosting設定の最適化 (Cache-Control)
+- [x] index.html & ビルド最適化 (Defer/Async, Preload)
+- [x] アニメーション最適化 (Forced Reflow対策)

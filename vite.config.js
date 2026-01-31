@@ -10,5 +10,16 @@ export default defineConfig({
         alias: {
             '@': path.resolve(__dirname, './src')
         }
+    },
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    'vendor-vue': ['vue'],
+                    'vendor-gsap': ['gsap'],
+                    'vendor-lenis': ['lenis']
+                }
+            }
+        }
     }
 })
