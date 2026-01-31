@@ -8,6 +8,11 @@ const progress = ref(0);
 onMounted(() => {
   const tl = gsap.timeline({
     onComplete: () => {
+      // Restore theme color to light background after loading
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', '#EEEEF3');
+      }
       emit('loaded');
     }
   });
@@ -25,7 +30,13 @@ onMounted(() => {
     yPercent: -100,
     duration: 1,
     ease: "power4.inOut"
-  });
+  })
+  .to(".loader-content", {
+    y: () => document.querySelector('.loading-screen').offsetHeight,
+    duration: 1,
+    ease: "power4.inOut"
+  }, "<")
+  .set(".loading-screen", { display: "none" });
 });
 </script>
 
@@ -44,13 +55,19 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #111; // Contrast to light theme? Or match? User likes light now.
-  // Actually, Ryden often uses bold contrasts. Let's start with dark for impact, revealing light.
+  background-color: #111;
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 120vh; /* Prevent address bar jump */
+    box-sizing: border-box;
+    padding-bottom: 20vh; /* Re-center content visually (120vh - 20vh = 100vh content area) */
+  }
 }
 
 .counter {

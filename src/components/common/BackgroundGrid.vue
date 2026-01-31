@@ -20,31 +20,29 @@ const draw = (ctx, width, height, time) => {
     const isEvenRow = r % 2 === 0;
     const direction = isEvenRow ? 1 : -1;
     const offset = (time * SPEED * direction) % GRID_SPACING;
-    
-    // Adjust y to center vertically or just start from top
     const y = r * GRID_SPACING;
 
     for (let c = -1; c < cols; c++) {
       let x = c * GRID_SPACING + offset;
-      
-      // Draw Cross
-      // Horizontal rect
       ctx.fillRect(x - CROSS_SIZE/2, y - 0.5, CROSS_SIZE, 1);
-      // Vertical rect
       ctx.fillRect(x - 0.5, y - CROSS_SIZE/2, 1, CROSS_SIZE);
     }
   }
 };
 
+const resize = () => {
+  if (canvasRef.value) {
+    canvasRef.value.width = window.innerWidth;
+    canvasRef.value.height = window.innerHeight;
+  }
+};
+
 onMounted(() => {
   const canvas = canvasRef.value;
+  if (!canvas) return;
+  
   const ctx = canvas.getContext('2d');
   let time = 0;
-
-  const resize = () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  };
 
   window.addEventListener('resize', resize);
   resize();

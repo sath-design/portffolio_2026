@@ -29,23 +29,5 @@ const onLoaded = () => {
 </template>
 
 <style scoped>
-.background-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: auto; /* Allow interaction with canvas */
-}
-
-.content-layer {
-  position: relative;
-  z-index: 1;
-  pointer-events: none; /* Let clicks pass through to canvas where empty */
-}
-
-.content-layer > * {
-  pointer-events: auto; /* Re-enable pointer events for actual content */
-}
+/* Global Layout Styles (if any) */
 </style>

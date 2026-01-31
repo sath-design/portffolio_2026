@@ -1,0 +1,201 @@
+[
+    {
+        "id": "work_01",
+        "title": "D-Mention / Over of the all",
+        "category": "COLLAGE ART",
+        "period": "2023.06",
+        "role": "Art Direction, Design",
+        "tech_stack": [
+            "Photoshop",
+            "Midjourney"
+        ],
+        "description": {
+            "challenge": "宇宙の全能感や「宇宙意思」といった、人知を超えた抽象的な概念をいかに視覚化するかが課題でした。単なる宇宙飛行士のポートレートに陥ることを避け、個体でありながら全宇宙であるという、捉えどころのない二律背反的な存在を具現化することが求められました 。",
+            "solution": "「宇宙空間そのもの」を個体の顔として設定しました。生命であり生命ではない、全てであり全てではないというパラドックスを表現するため、惑星を直接掴み取る実体的な「手」と、形を持たない「空間としての顔」を対比させています。",
+            "result": "あらゆる境界線を消失させた超越的な存在を提示しました。観る者の視点を既成のマスク（仮面）から、その背後の広大な虚空へと誘導することで、一個体と宇宙の全域が等価に共存する壮大な世界観を確立しています。"
+        },
+        "images": [
+            "/assets/images/collage_01.png"
+        ]
+    },
+    {
+        "id": "work_02",
+        "title": "D-Mention / Hawk",
+        "category": "COLLAGE ART",
+        "period": "2022.12",
+        "role": "Art Direction, Design",
+        "tech_stack": [
+            "Photoshop",
+            "Midjourney"
+        ],
+        "url": "https://app.manifold.xyz/c/d-mention-hawk",
+        "description": {
+            "challenge": "有機的な生命体（人間、猛禽類、羽）と、無機的な幾何学構造を共存させ、単なる「自然の模倣」ではない、多次元的な生命の在り方を描くことが課題でした。柔らかさと鋭さという、質の異なる質感を一つの画面に調和させる必要がありました。",
+            "solution": "人物のシルエットを基点に、光のライン（幾何学模様）を断層のように走らせることで、次元の重なりを表現。羽のテクスチャを細部までレイヤー化し、惑星の質感と同期させることで、「ミクロとマクロの融合」を視覚化しました。あえて背景の余白を活かすことで、情報の密度を際立たせています。",
+            "result": "自然とテクノロジー、あるいは現実と虚構が交差する、洗練された知的構造を持つビジュアルが完成。既存のカテゴリーに分類できない「多次元的な存在感」を確立し、Adobe主催「年末クリエイティブコンテスト」2022 デザイン部門 優秀賞を受賞しました。"
+        },
+        "images": [
+            "/assets/images/collage_02.png"
+        ]
+    },
+    {
+        "id": "work_03",
+        "title": "Myth",
+        "category": "COLLAGE ART",
+        "period": "2022.08",
+        "role": "Art Direction, Design",
+        "tech_stack": [
+            "Photoshop",
+            "Midjourney"
+        ],
+        "url": "https://opensea.io/ja/item/ethereum/0x6c9fafd68809c2d4e1964d5b5bcda40f03884168/4",
+        "description": {
+            "challenge": "古代から伝わる「神話」という普遍的な物語を、現代のデジタル・インダストリアルな要素と融合させ、新しい時代の聖典のようなビジュアルを構築することが課題でした。数多の象徴的モチーフ（神像、猛獣、機械）が互いに反発することなく、一つの巨大な叙事詩として調和する構図を追求しました。",
+            "solution": "古典彫刻を「文明の記憶」として中央に配し、その周囲に生命の力動（ライオンやタイガー）と知性の進化（ギアや産業パーツ）を放射状にレイアウト。サイケデリックな星雲を背景に置くことで、時間が止まったような神話的空間を演出しました。各要素のディテールをあえて等価に描き込み、視線がどこを辿っても物語（エピソード）が発見できる高密度の視覚体験を設計しています。",
+            "result": "伝統と革新、有機物と無機物が一つの特異点に収束した、現代における「新しい神話」を体現する作品となりました。観る者の想像力を刺激し、太古から未来へと続く物語の連続性を感じさせる、圧倒的なシンボリズムを確立しました。"
+        },
+        "images": [
+            "/assets/images/collage_03.png"
+        ]
+    },
+    {
+        "id": "work_05",
+        "title": "D-Mention / Overflow",
+        "category": "COLLAGE ART",
+        "period": "2024.06",
+        "role": "Design",
+        "tech_stack": [
+            "Photoshop",
+            "Midjourney"
+        ],
+        "url": "https://opensea.io/ja/assets/ethereum/0x72df42937d796dbb8e2505df8b773ec527f3dd98/5",
+        "description": {
+            "challenge": "深海（オルカ）と宇宙（星雲）、そして茨のような鋭利な要素を、一つの「思考の器」としての表情の中にまとめ上げることが課題でした。異なる環境のモチーフが衝突し、溶け合う瞬間のカオスと秩序をいかに表現するかが焦点となりました。",
+            "solution": "液体の飛沫や煙のような流体表現を「つなぎ」として使用し、異なる次元の要素が絶え間なく変化（変態）し続ける様子を描写。人物の表情をあえて静謐に保つことで、その内面で渦巻く膨大な想像力の奔流を強調しました。色彩のグラデーションにより、水と光、宇宙の塵が一体となる演出を施しています。",
+            "result": "「先入観」という壁を流動的に突き破るような、圧倒的な情報量と没入感を持つポートレートとなりました。人間の意識そのものが次元を超越する「場所」であることを象徴的に表現しています。"
+        },
+        "images": [
+            "/assets/images/collage_05.jpg"
+        ]
+    },
+    {
+        "id": "work_06",
+        "title": "\"THE FIVE\" LOGO DESIGN",
+        "category": "LOGO DESIGN",
+        "period": "2022.11",
+        "role": "Art Direction, Design",
+        "tech_stack": [
+            "Illustrator"
+        ],
+        "url": "https://thefive.co.jp/",
+        "description": {
+            "challenge": "メタバース、NFT、ソフトウェア開発といった「目に見えない実体のない価値」を扱うブランドにおいて、「確かな信頼性（規律）」と「未来を切り拓く鋭さ（突破力）」という相反する要素を一つのシンボルに集約することが課題でした。単なる装飾的なデジタル表現に留まらず、ブランドの永続性を保証する普遍的な造形が求められました。",
+            "solution": "シンボルのモチーフはローマ数字の５、つまり「Ⅴ」をベースにエネルギーを意味する「火」と「渦」を用い、「渦」の部分では「可能性や夢を掴む」「新しい経済圏」といった意味を込めています。全ての曲線と直線は円の組み合わせによる幾何学的なグリッド（Construction Grid）に基づいて設計され、数学的な美しさと再現性を担保しています。",
+            "result": "緻密な設計図（グリッド）をあえて公開できるレベルの完成度を持つシンボルが誕生しました。「THE FIVE」という組織が持つ専門性と、時代を加速させる意志を直感的に伝えるブランドアイデンティティを確立しました。"
+        },
+        "images": [
+            "/assets/images/logo_01.png",
+            "/assets/images/logo_01_detail.png"
+        ]
+    },
+    {
+        "id": "work_07",
+        "title": "\"Alice in Wonderland\"",
+        "category": "LOGO DESIGN",
+        "period": "2023.05",
+        "role": "Art Direction (Kazushi Fujii), Design (Shigeharu Imoto)",
+        "tech_stack": [
+            "Illustrator"
+        ],
+        "description": {
+            "challenge": "",
+            "solution": ""
+        },
+        "images": [
+            "/assets/images/logo_02.png"
+        ]
+    },
+    {
+        "id": "work_08",
+        "title": "\"ミライノカケラ\"",
+        "category": "LOGO DESIGN",
+        "period": "2023.04",
+        "role": "Art Direction (Kazushi Fujii), Design (Shigeharu Imoto)",
+        "tech_stack": [
+            "Illustrator"
+        ],
+        "description": {
+            "challenge": "",
+            "solution": ""
+        },
+        "images": [
+            "/assets/images/logo_03.png"
+        ]
+    },
+    {
+        "id": "work_09",
+        "title": "\"THE FIVE\" Business Card",
+        "category": "PRINT DESIGN",
+        "period": "2022.11",
+        "role": "Print Design",
+        "tech_stack": [
+            "Illustrator"
+        ],
+        "description": {
+            "solution": "SF・サイバーパンク的な意匠を取り入れつつ、デザインの四原則に基づき、情報の優先順位を整理しています 。",
+            "result": "緻密なグリッド設計によるロゴと、複雑な情報を見やすく整理した名刺レイアウトにより、THE FIVEが提供する「メタバース・NFT・ソフト開発」という高難度な事業領域への専門性と信頼感を視覚的に担保します。"
+        },
+        "images": [
+            "/assets/images/namecard_01.png",
+            "/assets/images/namecard_01_detail.png"
+        ]
+    },
+    {
+        "id": "work_10",
+        "title": "Yui-Torch",
+        "category": "DIRECTION",
+        "period": "2026.01",
+        "role": "Direction,Art Direction, Ai Engineering",
+        "tech_stack": [
+            "Illustrator",
+            "Gemini 3 Pro",
+            "Antigravity",
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "GSAP",
+            "Firebase",
+            "Git"
+        ],
+        "url": "https://yui-torch.jp",
+        "description": {
+            "challenge": "簡単で柔軟な生存確認、誤送信リスクを抑えつつ、確実性の高いシステムで遺すメッセージ送信サービス",
+            "solution": "AIエンジニアリングによるバイブコーディングで、自身のスキルセットにない技術もふんだんに使用し、目指したシステムを実現",
+            "result": "仕様決定から実装までをAIと共創し、可能な限りコストも抑えつつ、実際に動作するシステムを構築"
+        },
+        "images": [
+            "/assets/images/website_01.png"
+        ]
+    },
+    {
+        "id": "work_11",
+        "title": "\"WIPLE\" KEY VISUAL",
+        "category": "GRAPHIC DESIGN",
+        "period": "2023.02",
+        "role": "Art Direction, Design",
+        "tech_stack": [
+            "Photoshop",
+            "Illustrator",
+            "Midjourney"
+        ],
+        "url": "https://prtimes.jp/main/html/rd/p/000000001.000116806.html",
+        "description": {
+            "challenge": "日本のデジタルアート・NFTをテーマに開催された、韓国発デジタルアートギャラリー「WIPLE NFT ギャラリー」のキービジュアルを担当しました。",
+            "solution": "ギャラリーのコンセプトである「日本らしさ」と「デジタルアート」の融合を視覚的に表現。"
+        },
+        "images": [
+            "/assets/images/collage_06.png",
+            "/assets/images/collage_06_detail.png"
+        ]
+    }
+]

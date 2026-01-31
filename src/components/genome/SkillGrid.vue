@@ -34,7 +34,7 @@ onMounted(() => {
                 trigger: chapter,
                 start: "top top",
                 end: "bottom bottom",
-                scrub: true
+                scrub: 1
             },
             scale: 0.95,
             opacity: 0.8,
@@ -56,75 +56,129 @@ onMounted(() => {
       ease: "expo.out"
     });
   });
-  // Create Cipher Animation (Reusable in this component)
-  const createCipherAnimation = (wrapperSelector, text) => {
+  // 4. Block Reveal Animation (Layering: Text > Underline > Cyan Block)
+  const createBlockRevealAnimation = (wrapperSelector) => {
     const wrapper = document.querySelector(wrapperSelector);
     if (!wrapper) return;
 
-    const cipherTarget = wrapper.querySelector('.cipher-text');
-    if (!cipherTarget) return;
+    const title = wrapper.querySelector('.box-title');
+    if (!title) return;
 
-    const chars = text.split('');
+    // Wrap text content in a span
+    if (!title.querySelector('.text-wrapper')) {
+      const text = title.textContent;
+      title.innerHTML = `<span class="text-wrapper" style="display:inline-block">${text}</span>`;
+    }
+    const textWrapper = title.querySelector('.text-wrapper');
+
+    gsap.set(wrapper, { position: 'relative' });
+
+    const block = document.createElement('div');
+    block.classList.add('reveal-block');
+    wrapper.appendChild(block);
+
+    gsap.set(title, { 
+      position: 'relative',
+      display: 'inline-block',
+      clipPath: 'none',
+      zIndex: 3
+    }); 
     
-    // Clear initial text and set up spans
-    cipherTarget.innerHTML = chars.map(c => 
-      c === ' ' ? '<span class="cipher-char spacer">&nbsp;</span>' : `<span class="cipher-char" style="opacity:0">A</span>`
-    ).join('');
+    gsap.set(textWrapper, {
+      clipPath: 'inset(0 100% 0 0)'
+    });
+
+    const underline = wrapper.querySelector('.title-underline');
+    if (underline) {
+      gsap.set(underline, { zIndex: 2, position: 'relative' });
+    }
     
-    const charEls = cipherTarget.querySelectorAll('.cipher-char:not(.spacer)');
+    gsap.set(block, { 
+      position: 'absolute',
+      backgroundColor: '#000',
+      zIndex: 1, 
+      opacity: 0
+    });
 
     ScrollTrigger.create({
       trigger: wrapper,
       start: "top 80%",
       onEnter: () => {
-        // Animate Chars
-        charEls.forEach((charEl, i) => {
-          const targetChar = chars.filter(c => c !== ' ')[i]; 
-          if (!targetChar) return;
+        // Calculate geometry
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const titleRect = title.getBoundingClientRect();
+        
+        const screenRightInWrapper = window.innerWidth - wrapperRect.left;
+        const screenLeftInWrapper = -wrapperRect.left;
+        const titleRightInWrapper = titleRect.right - wrapperRect.left;
+        
+        // Gap Adjustment
+        const gap = 30;
+        const targetLeftPos = titleRightInWrapper + gap;
+        const finalBarWidth = (window.innerWidth - titleRect.right) - gap;
+        
+        const titleTopInWrapper = titleRect.top - wrapperRect.top;
+        const titleHeight = titleRect.height;
+        const screenWidth = window.innerWidth;
 
-          const targetCode = targetChar.charCodeAt(0);
-          let currentCode = 65; // Start from 'A'
-          
-          gsap.to(charEl, {
-            opacity: 1,
-            duration: 0.05,
-            delay: i * 0.05
-          });
-
-          const obj = { code: currentCode };
-          
-          gsap.to(obj, {
-            code: targetCode,
-            duration: 0.3,
-            ease: "none",
-            delay: i * 0.05,
-            onUpdate: () => {
-              charEl.textContent = String.fromCharCode(Math.floor(obj.code));
-            },
-            onComplete: () => {
-              charEl.textContent = targetChar;
-            }
-          });
+        gsap.set(block, { 
+          left: screenRightInWrapper, 
+          width: 0,
+          top: titleTopInWrapper,
+          height: titleHeight,
+          opacity: 1 
         });
 
-        // Animate Underline
-        const underline = wrapper.querySelector('.title-underline');
+        const tl = gsap.timeline();
+
+      // Step 1: Extend (Start at 0)
+        tl.to(block, {
+          left: screenLeftInWrapper,
+          width: screenWidth,
+          duration: 0.5, // Faster extension (was 0.8)
+          ease: "power4.inOut" // Snappier ease (was power3)
+        }, 0)
+
+        // Underline (Start at 0)
         if (underline) {
-          gsap.fromTo(underline, 
+          tl.fromTo(underline, 
             { width: '0vw' },
             {
-              width: '100vw', // Full viewport width
-              duration: 1.0, 
-              ease: "power3.out",
-              delay: 0
-            }
+              width: '100vw', 
+              duration: 0.7, // Faster sync (was 1.2)
+              ease: "power3.out"
+            },
+            0
           );
         }
+
+        // Step 2: Retract (Start at 0.5)
+        const extendDuration = 0.5;
+       
+        tl.to(block, {
+          left: targetLeftPos, 
+          width: finalBarWidth, 
+          duration: 0.6, // Faster retraction (was 1.0)
+          ease: "power4.inOut"
+        }, extendDuration)
+        
+        .to(textWrapper, {
+          clipPath: 'inset(0 0% 0 0)',
+          duration: 0.6, // Sync with retraction
+          ease: "power4.inOut"
+        }, extendDuration)
+
+        // Step 3: Color Change
+        .to(block, {
+          backgroundColor: '#00E5FF',
+          duration: 0.3, // Faster color switch
+          ease: "power2.out"
+        });
       }
     });
   };
 
-  createCipherAnimation('.skills-header', 'SKILL GENOME');
+  createBlockRevealAnimation('.skills-header');
 });
 </script>
 
@@ -132,7 +186,7 @@ onMounted(() => {
   <div class="skill-genome-container" id="skills">
     <!-- Unified Header Style -->
     <div class="container skills-header reveal-wrap" style="margin-bottom: 80px; padding-top: 15vh;">
-        <h2 class="box-title cipher-text">SKILL GENOME</h2>
+        <h2 class="box-title">SKILLS</h2>
         <div class="title-underline"></div>
     </div>
 
@@ -152,7 +206,7 @@ onMounted(() => {
              <h2 class="chapter-title" style="color: #111;">
                {{ category.label }}
              </h2>
-             <div class="chapter-deco-line" style="background-color: #111;"></div>
+             <div class="chapter-deco-line"></div>
           </div>
         </div>
 
@@ -186,7 +240,7 @@ onMounted(() => {
 
 // Header Styles (Copied for consistency, should be global or mixin ideally)
 .box-title {
-  font-size: clamp(36px, 5.5vw, 72px);
+  font-size: clamp(50px, 8vw, 100px);
   font-family: var(--font-display); 
   font-weight: 700;
   line-height: 1.1;
@@ -200,10 +254,16 @@ onMounted(() => {
   width: 0;
   height: 15px;
   background-color: #000;
-  margin-top: 10px;
+  margin-top: -30px;
   position: relative;
+  z-index: 2;
   left: 50%;
   margin-left: -50vw;
+}
+
+.box-title {
+  position: relative;
+  z-index: 3;
 }
 
 /* Deep selector for cipher chars if scoped, but v-html/innerHTML might need :deep */
@@ -272,6 +332,7 @@ onMounted(() => {
   height: 4px;
   margin-top: 10px;
   border-radius: 2px;
+  background-color: $color-accent;
 }
 
 .skill-list {

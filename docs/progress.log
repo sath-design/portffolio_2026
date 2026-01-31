@@ -12,3 +12,365 @@
 - **引き継ぐべき「微調整のニュアンス」**:
     - **デザインの四原則（整列・近接・反復・コントラスト）**を全てのコード判断基準とすること。
     - アニメーションは「過剰な装飾」ではなく「情報の関連性を示す動き」に留める。
+
+## Phase 6 Update / 2026-01-28 (Refinement & Integrity)
+- **完了したタスク**:
+    - **見出しアニメーション刷新**: "Full Screen Wipe & Shutter"（画面右端からのワイプ＋テキストリビール）の実装完了。
+    - **デザイン調整**: 
+        - Cyanバーをテキストの背面に配置し、下線アニメーションと同期。
+        - フッターのマウスオーバー色をアクセントカラー（Cyan）に統一。
+        - セクション構成の整理（Philosophy/Worksのフルスクリーン化）。
+    - **コンテンツ更新**: Philosophyセクションのテキスト強化（"静寂の中に、熱狂を。"）、一人称の修正（We -> I）。
+- **技術的変更点**:
+    - `gsap.timeline` を使用した複雑なシーケンス制御（ワイプ→リビール→色変化）。
+    - `z-index` レイヤー構造の再定義（Text > Underline > Block）。
+- **次のステップ**:
+    - 最終デプロイ準備
+    - モバイル表示の微調整（必要であれば）
+
+## Phase 7-10 Update / 2026-01-28 (Content Expansion & Interaction)
+- **完了したタスク**:
+    - **WORKSセクション拡張 (Phase 7 & 9)**:
+        - 作品画像を9点（コラージュ5点、ロゴ3点、名刺1点）に拡充。
+        - 2カラムグリッド＋シネマティック全幅表示（最後の1点）のレイアウト実装。
+        - カテゴリ分類（GRAPHIC / LOGO / PRINT）の適用。
+    - **Philosophyセクション視覚強化 (Phase 8)**:
+        - 2カラムレイアウト化（左: テキスト / 右: 画像）。
+        - 2枚の画像によるパララックス効果（スクロール深度演出）の実装。
+        - モバイル表示時のレイアウト調整（画像表示、テキスト左寄せ、下線バグ修正）。
+    - **インタラクション実装 (Phase 10 & Refinement)**:
+        - **スクロール連動ズーム**: WORKS画像がスクロールに合わせてゆっくり拡大する演出。
+        - **画像拡大モーダル**: 画像クリックで全画面表示する `ImageModal` コンポーネントの実装。
+        - **アニメーション整合**: RevealアニメーションとZoomアニメーションの競合解消（カクつき修正）。
+    - **レスポンシブ対応**:
+        - Heroセクションのフォントサイズ自動縮小（見切れ修正）。
+        - Philosophy画像の配置調整（大小画像の重なり）。
+
+## Phase 11: Final Polish & Content Synchronization / 2026-01-28
+- **完了したタスク**:
+    - **SKILLSデータ再構築**:
+        - `docs/職務経歴書.md` をベースに `src/assets/data/skills.json` を完全リニューアル。
+        - Engineering (Frontend/CMS), Creative (UI/UX, Graphic), Business (Web3, Planning) の3軸で実績を反映。
+    - **アクセントカラー適用**:
+        - グローバルアクセントを Cyan (`#00E5FF`) に統一。
+        - 適用箇所: テキスト選択色 (`::selection`)、SKILLSカテゴリ下線。
+        - 調整: WORKS番号色はデフォルトに戻し、視覚的ノイズを低減。
+    - **アニメーション調整**:
+        - SKILLS固定見出しの縮小アニメーションに `scrub: 1` を適用し、滑らかな慣性動作を実現。
+
+## Phase 12: Visual Impact & Professional Tone / 2026-01-28
+- **完了したタスク**:
+    - **ヘッダーロゴ強化**:
+        - `Outfit` フォントの Weight 900 を導入し、ロゴ「SI」を極太化。
+    - **PHILOSOPHY コンテンツ刷新**:
+        - 採用担当者向けにトーンを調整。「稼ぐ」等の表現を控え、「組織の規律」と「個人の突破力」を強調する内容へ変更。
+    - **タイポグラフィ調整**:
+        - セクション見出し（PHILOSOPHY, WORKS, SKILLS）のフォントサイズを最大100pxまで拡大し、インパクトを強化。
+        - 本文サイズは可読性を優先し、適切なバランス（24px-48px）に維持。
+- **現在のステータス**:
+    - ビジュアルの強弱（アクセント等）と、コンテンツの信頼性（文章）が両立した状態。
+    - 最終デプロイ準備完了。
+
+## Renovation Phase: Recruiter Appeal & Integrity / 2026-01-29
+- **完了したタスク**:
+    - **Worksセクションの大規模改修**:
+        - `works.json`の導入と詳細データ（Challenge/Solution/Result）の構造化。
+        - 採用担当者向け「WorkDetailModal」の実装（スクロール制御、Lenis競合回避を含む）。
+        - オートグリッドロジックの実装（奇数個の場合のみラスト1枚を最大化）。
+    - **UI/UX Polishing**:
+        - Philosophyセクションのモバイル表示最適化（見切れ修正、余白調整）。
+        - モーダル内スクロールの操作性向上（`data-lenis-prevent`）。
+    - **不具合修正**:
+        - `npm run build` 時の `Invalid end tag` エラー（`ContentSections.vue` 内の重複コード削除）による完全修復。
+    - **データ更新**:
+        - ユーザー提供の実データによる Works コンテンツの刷新（D-Mention, THE FIVE 等）。
+- **技術的変更点**:
+    - 重複コードの排除によるコンポーネント健全化。
+    - `span-col-2` クラスの動的割り当て（JSロジックベース）への変更。
+- **現在のステータス**:
+
+## Final Polish & Layout Optimization / 2026-01-29
+- **完了したタスク**:
+    - **Philosophyセクションの表示最適化**:
+        - **PC**: 画像エリアの左シフト（`translateX(-5%)`）と右側余白（`right: 5%`）による配置調整。
+        - **Mobile**:
+            - 意図的な「重ね合わせレイアウト」の実装（大きい画像を右にはみ出させ、小さい画像を左下に配置）。
+            - 高さ不足による間延び修正（`height: 360px`）。
+        - **共通**: ドロップシャドウのぼかし軽減（`0 15px 25px`）によるシャープな印象化。
+    - **不具合修正**:
+        - CSSの記述順序（Media Queryの後にDesktopスタイルが来ていた問題）を修正し、PC/Mobileのスタイル競合を解消。
+- **現在のステータス**:
+    - 全セクション（Hero, Philosophy, Works, Skills）の実装・調整完了。
+    - `dist` への最終ビルド完了。
+
+## Global Refactoring / 2026-01-29
+- **完了したタスク**:
+    - **全ソースコードのリファクタリング**:
+        - `BackgroundGrid.vue`: `resize`関数のスコープバグ修正 & ロジックのセットアップ内への移動。
+        - `WorkDetailModal.vue`: 未使用の `onUnmounted` インポート削除。
+        - `App.vue`: 未使用のCSS（`.background-layer` 等）削除。
+        - `ContentSections.vue`: 
+            - CSS重複（`.box-title`）の統合と整理。
+            - 複雑なロジック（`createBlockRevealAnimation`）のセットアップスコープへの移動による可読性向上。
+- **検証**:
+    - `npm run build` によるビルド正常終了を確認。
+
+## Visual Adjustment: Font Update / 2026-01-29
+- **完了したタスク**:
+    - **Heroフォント変更**:
+        - "SHIGEHARU IMOTO" のフォントを `Cormorant Garamond` から `Times New Roman` に変更。
+        - 伝統的なセリフ体により、よりクラシックで知的な印象へシフト。
+    - **最適化**:
+        - 不要になった `Cormorant Garamond` のWebフォント読み込み記述を `index.html` から削除。
+
+## Bug Fixes: Hero Animation & Layout / 2026-01-29
+- **完了したタスク**:
+    - **Heroアニメーション修正**:
+        - `Hero.vue` におけるアニメーション要素の取得方法を `document.querySelector` から `ref` を用いたこのコンポーネント内へのスコープ指定 (`heroSectionRef`) に変更し、確実に要素を取得・アニメーション実行できるように修正。
+    - **モバイルスクロール表示修正**:
+        - スクロールインジケーター（SCROLL / Line）のモバイル表示におけるセンタリング手法を `transform: translateX(-50%)` から `margin: 0 auto` に変更。これによりGSAPのアニメーション（Y軸移動）による `transform` 上書き問題を解消し、常に中央に表示されるよう修正。
+- **検証**:
+    - `npm run build` によるビルド正常終了を確認。
+
+## Content Updates & Final Build / 2026-01-29
+- **完了したタスク**:
+    - **Worksデータ更新 (User Action)**:
+        - `works.json` 内のプロジェクト記述（Challenge, Solution, Result）のリセットおよびタイトル修正（"THE FIVE", "Alice in Wonderland", "ミライノカケラ" 等）を確認・反映。
+    - **最終ビルド**:
+        - ユーザーによるデータ修正および直前のバグ修正を含めた最終的な `dist` ビルドの生成完了。
+- **現在のステータス**:
+    - 全ての修正・調整・データ入力が完了し、デプロイ可能な状態。
+
+## Layout Adjustment: Spacing / 2026-01-29
+- **完了したタスク**:
+    - **Worksセクション余白調整**:
+        - セクション最下部の余白（`padding-bottom`）を `200px` から `100px` に縮小し、間延び感を解消。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Animation Adjustment: Heading Reveal / 2026-01-29
+- **完了したタスク**:
+    - **見出しアニメーション調整**:
+        - `ContentSections.vue` 内のブロックリビール処理を高速化（伸縮時間を約40%短縮）。
+        - イージングを `power4.inOut` に変更し、より緩急のついた「キレのある」動きに変更。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Hero Identity / 2026-01-29
+- **完了したタスク**:
+    - **Heroテキスト変更**:
+        - "SHIGEHARU IMOTO PORTFOLIO" から "Sath. / DesiGn" (2行) に変更。
+    - **フォントスタイル変更**:
+        - セリフ体指定（`.serif-font`）を廃止し、デフォルトのディスプレイフォント（Outfit）に統一。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Hero Reversion / 2026-01-29
+- **完了したタスク**:
+    - **Heroテキスト復元**:
+        - ユーザー要望により、"Sath. / DesiGn" から "SHIGEHARU IMOTO PORTFOLIO" (3行) へ戻しました。
+    - **フォントスタイル復元**:
+        - セリフ体指定（`Times New Roman`）を再適用しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Header Logo / 2026-01-29
+- **完了したタスク**:
+    - **ヘッダーロゴ変更**:
+        - "SI" から "|S-I|" ("差の絶対値"の意匠化) に変更しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Header Blend Mode / 2026-01-29
+- **完了したタスク**:
+    - **Header UI変更**:
+        - ヘッダー全体に `mix-blend-mode: difference` を適用し、背景色に応じて色が反転する（差の絶対値）ように変更。
+        - 併せてテキスト色を `#fff` (白) に設定し、白背景上では黒文字として見えるように調整。
+        - ロゴテキストを "SI" に戻しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Hero Text Update / 2026-01-29
+- **完了したタスク**:
+    - **Heroテキスト変更**:
+        - "SHIGEHARU IMOTO" (2行) を "IMTSGHR" (1行) に統合・短縮しました。
+        - セリフ体（`Times New Roman`）は維持しています。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Bug Fix: Mobile Menu Close Button / 2026-01-29
+- **完了したタスク**:
+    - **モバイルメニュー閉じるボタン修正**:
+        - ヘッダー (`.app-header`) の z-index を `2000` に、メニューオーバーレイ (`.mobile-menu`) を `1900` に設定変更。
+        - これにより、オーバーレイ表示時もヘッダー内の「×」ボタンが最前面に配置され、確実にクリックできるように修正しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Content Update: Footer Information / 2026-01-29
+- **完了したタスク**:
+    - **連絡先変更**: `mailto` を `info@ariesplus.com` に変更。
+    - **ソーシャルリンク変更**: GitHub, LinkedIn を削除し、X (Twitter) のみを残してリンク先を `https://x.com/sath_design` に設定。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Hero Font Typekit / 2026-01-30
+- **完了したタスク**:
+    - **Adobe Typekit導入**:
+        - `index.html` に `<link rel="stylesheet" href="https://use.typekit.net/lmb4rbr.css">` を追加。
+    - **フォントスタイル適用**:
+        - Heroテキストのフォントを `trajan-pro-3` に指定し、ウェイトを `600` に設定しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Hero Font Reversion / 2026-01-30
+- **完了したタスク**:
+    - **フォント設定の巻き戻し**:
+        - ユーザー判断により `trajan-pro-3` を廃止し、元の `Times New Roman` に戻しました。
+        - 併せて `index.html` から Adobe Typekit の読み込み記述を削除しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Bug Fix: Google Fonts Link / 2026-01-30
+- **完了したタスク**:
+    - **フォント読み込み記述の修復**:
+        - `index.html` にて、Typekit削除の際に誤って Google Fonts の `<link>` タグの一部が欠損していた問題を修正しました。
+        - これにより "PORTFOLIO" 等で使用される `Outfit` フォントが正常に表示されるようになります。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Animation Adjustment: Skills Heading / 2026-01-30
+- **完了したタスク**:
+    - **SKILLS見出しアニメーション同期**:
+        - SKILLSセクションの見出しアニメーション（Block Reveal）の速度を、PhilosophyやWorksセクションと完全に一致させました。
+        - 伸縮時間: 0.8s/1.0s → 0.5s/0.6s
+        - イージング: power3 → power4 (より鋭い動きへ変更)
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Micro-Interaction: Loading Screen / 2026-01-30
+- **完了したタスク**:
+    - **ローディング終了演出の改善**:
+        - 黒画面が上にワイプする際、"100%" の文字が一緒に上に移動せず、画面中央に留まったまま黒画面の境界線で切り取られる（消える）ように変更しました。
+        - 実装詳細: `.loader-content` に親要素の移動(`yPercent: -100`)と逆方向かつ同速度の移動(`y: '100vh'`)を与え、視覚的な位置を固定化。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Content Update: Footer Social Icon / 2026-01-30
+- **完了したタスク**:
+    - **ソーシャルリンクのアイコン化**:
+        - "X (Twitter)" のテキストリンクを X社の公式ロゴ（SVG）に変更しました。
+    - **レイアウト調整**:
+        - アイコンとコピーライトのテキストが垂直方向中央で揃うように `align-items: center` を適用しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Content Update: Instagram Icon / 2026-01-30
+- **完了したタスク**:
+    - **ソーシャルリンク追加**:
+        - Xアイコンの隣に Instagram のアイコンを追加しました。
+        - リンク先: `https://www.instagram.com/sath_design`
+        - デザイン: Xアイコンと同様の白色SVGスタイルで統一。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Bug Fix: Mobile Safe Area Color / 2026-01-30
+- **完了したタスク**:
+    - **モバイルブラウザUI(アドレスバー付近)の色制御**:
+        - iPhone等のモバイルブラウザで、ローディング中（黒画面）にアドレスバー付近が白く表示され、ローディング完了時に急に黒くなる/白くなる違和感を解消。
+        - **修正内容**:
+            - `index.html` に `<meta name="theme-color" content="#111111">` を追加し、初期状態（ローディング時）のブラウザUIを黒に設定。
+            - `LoadingScreen.vue` のアニメーション完了時（`onComplete`）に、JSで `theme-color` を `#EEEEF3`（サイト背景色）に動的に書き換えるロジックを実装。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Header Logo Weight / 2026-01-30
+- **完了したタスク**:
+    - **ヘッダーロゴ（SI）のウェイト変更**:
+        - ユーザー要望により、`font-weight: 900` から `font-weight: 600` へ変更し、少しスッキリとした印象に調整しました。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Visual Adjustment: Mobile Loading Centering / 2026-01-30
+- **完了したタスク**:
+    - **モバイル表示時のローディング文字位置修正**:
+        - 前回の修正（高さ `120vh` 化）により、文字の垂直中央位置が画面下寄りになっていた問題を解消。
+        - **修正内容**:
+            - モバイル表示時のみ `padding-bottom: 20vh` を適用し、実質的なコンテンツエリアを `100vh` 分（画面上部）に限定。
+            - これにより、黒画面自体は `120vh` でアドレスバー領域をカバーしつつ、文字は視覚的な画面中央（50vh地点）に表示されるよう調整。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Bug Fix: Mobile Safe Area Coverage / 2026-01-30
+- **完了したタスク**:
+    - **モバイルセーフエリアの表示色修正**:
+        - iPhoneでページ読み込み直後、画面上下（セーフエリア）が白く表示され、その後に黒くなる「色のチラつき」を完全に修正。
+        - **修正内容**:
+            - `index.html` の viewport metaタグに `viewport-fit=cover` を追加。
+            - これにより、黒いローディング画面が最初から画面の隅々（ノッチやホームバーの下）まで拡張され、システム背景色の映り込みを防止。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Bug Fix: Mobile Status Bar Gradient / 2026-01-30
+- **完了したタスク**:
+    - **モバイルステータスバーの黒グラデーション除去**:
+        - スクロール開始時に画面上部（ステータスバー付近）に黒い影/グラデーションが掛かる現象に対処。
+        - **修正内容**:
+            - `index.html` に iOS用メタタグ (`apple-mobile-web-app-capable`, `apple-mobile-web-app-status-bar-style`) を追加。
+            - ステータスバーのスタイルを `default` (白背景/黒文字) に明示的に指定することで、OSによる透過時の保護用グラデーション（Scrim）の発生を抑制。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Bug Fix: Mobile Status Bar Gradient (Retry) / 2026-01-30
+- **完了したタスク**:
+    - **黒グラデーション問題の再修正**:
+        - 前回の `apple-mobile-web-app` タグ追加では解消しなかったため、アプローチを変更。
+        - **修正内容**:
+            - `apple-mobile-web-app` 関連のメタタグを削除（デフォルト挙動へ戻す）。
+            - `html` 要素に対し、明示的に `background-color: #EEEEF3` を設定。
+            - これにより、`viewport-fit=cover` 適用時のオーバースクロール領域やステータスバー裏の背景色を、ブラウザのデフォルト（黒）からサイト背景色に統一し、透過時の「黒浮き」を防止。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## Bug Fix: Loading Screen DOM Removal / 2026-01-30
+- **完了したタスク**:
+    - **ローディング要素の完全非表示化**:
+        - ローディング完了後、要素が画面外（`y: -100%`）に移動するのみでDOM上に残り続けていた問題を修正。
+        - **修正内容**:
+            - `LoadingScreen.vue` のGSAPタイムライン完了時、`.set(".loading-screen", { display: "none" })` を実行し、要素をレンダリングツリーから完全に削除。
+            - これにより、iPhone等でのスクロール操作時に画面外にある黒いローディング要素がチラついたり、不要な影/グラデーションとして表示される問題を根本解決。
+- **検証**:
+    - `npm run build` による再ビルド完了。
+
+## UI Improvement: Conditional Display for Work Details / 2026-01-30 
+- **変更**: `WorkDetailModal.vue` にて Challenge/Solution/Result が空の場合（データ未入力時）に、各項目を非表示にする `v-if` 追加。
+- **検証**: `npm run build` 成功確認。
+
+## Content Update: Work URL Addition / 2026-01-30 
+- **変更**: works.json の 'Yui-Torch' 項目に URL (https://yui-torch.jp) を追加。
+- **検証**: 
+pm run build 成功確認。
+
+## Content Update: Site Title Change / 2026-01-30 
+- **変更**: index.html の <title> を 'IMTSGHR PORTFOLIO 2026' に変更。
+- **検証**: 
+pm run build 成功確認。
+
+## Final Polish: SEO, Security & RSS / 2026-01-30 
+- **完了**: OGP画像(ogp.png)配置、Favicon(favicon.png)生成、メタタグ(SEO/Security)実装。
+- **機能追加**: RSSフィード生成スクリプト(scripts/generate-rss.js)作成とビルドプロセスへの統合。
+- **検証**: 
+pm run build 成功確認。
+
+## Documentation: Task Translation / 2026-01-30 
+- **完了**: 	ask.md を全文日本語に翻訳し、docs/task.md に同期。
+- **検証**: 
+pm run build 成功確認。
+
+## Final Config: URL & Base Path Correction / 2026-01-30 
+- **修正**: OGP URL, RSS Link を https://ariesplus.com/portfolio_2026/ に統一。
+- **設定**: ite.config.js の base path を /portfolio_2026/ に変更。
+- **検証**: 再ビルド完了。
+
+## Final Config: Deployment Path Optimization / 2026-01-30 
+- **修正**: index.html 内の OGP image, Favicon のパスを /portfolio_2026/ プレフィックス付き（または絶対URL）に修正。
+- **検証**: 再ビルド完了。

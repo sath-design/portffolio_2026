@@ -77,13 +77,16 @@ onMounted(() => {
     </button>
 
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu">
-      <nav class="mobile-nav">
-        <a v-for="item in navItems" :key="item.name" @click.prevent="scrollTo(item.target)" class="mobile-nav-link">
-          {{ item.name }}
-        </a>
-      </nav>
-    </div>
+    <!-- Mobile Menu Overlay with Teleport -->
+    <Teleport to="body">
+      <div class="mobile-menu">
+        <nav class="mobile-nav">
+          <a v-for="item in navItems" :key="item.name" @click.prevent="scrollTo(item.target)" class="mobile-nav-link">
+            {{ item.name }}
+          </a>
+        </nav>
+      </div>
+    </Teleport>
   </header>
 </template>
 
@@ -94,12 +97,20 @@ onMounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; // High z-index
+  z-index: 2000; // Increased to be above mobile menu overlay
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #111; // Solid color for light theme visibility
-  // mix-blend-mode removed for better consistency
+  color: #fff; // White so difference mode turns it black on white bg
+  mix-blend-mode: difference;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.05em;
+  cursor: pointer;
 }
 
 /* Desktop Nav */
@@ -109,7 +120,7 @@ onMounted(() => {
   
   .nav-item {
     text-decoration: none;
-    color: #111;
+    color: #fff; // White for difference mode
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -150,7 +161,7 @@ onMounted(() => {
   .hamburger-line {
     width: 100%;
     height: 2px;
-    background-color: #111;
+    background-color: #fff; // White for difference mode (will invert on white bg)
     transition: all 0.3s ease;
   }
   

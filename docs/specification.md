@@ -2,6 +2,7 @@
 | 項目 | 内容 |
 |---|---|
 | サイト名称 | SHIGEHARU IMOTO Portfolio 2026 |
+| 本番URL | https://ariesplus.com/portfolio_2026/ |
 | 開発環境 | Antigravity (AI-native Coding) |
 | コア機能 | Vue 3 + Lenis + GSAP による「キネティック・スクロール体験」。<br>文字解読演出 (Cipher) と全幅ラインアニメーション。 |
 | デザイン原則 | **Ryden Style** (Light Mode / Swiss Typographic / Kinetic) |
@@ -30,18 +31,13 @@ AIが各filesの役割を即座に把握し、循環参照を防ぐためのク�
 # 3. 実装フェーズ（Current: Phase 6）
 AIへの指示を出す際の「フェーズ」分けです。
 
-- **Phase 1-2**: 環境構築と基本レイアウト [完了]
-- **Phase 3**: アニメーション基盤 (GSAP, ScrollTrigger) 導入 [完了]
-- **Phase 4**: コンテンツ実装 (Hero, Works Prototype) [完了]
-- **Phase 5**: **Ryden Style Deep Dive** [完了]
-  - Light Mode化 (`#EEEEF3`)
-  - "Cipher" テキストアニメーション
-  - 全幅下線演出 (`100vw` Breakout)
-  - 2カラムグリッド Works
-- **Phase 6**: **Refinement & Integrity** [現在進行中]
+- **Phase 1-5**: Foundation & Ryden Style Core [完了]
+- **Phase 6-11**: Refinement, Content & Interaction [完了]
+- **Phase 12**: Visual Impact & Professional Tone [完了]
+- **Renovation**: Recruiter Appeal Enhancement (Works/Modal) [完了]
+- **Current Phase**: **Final Polish & Verification** [現在進行中]
   - ドキュメント整合性の確保
-  - モバイルレスポンシブの最終調整
-  - パフォーマンスチューニング
+  - 最終ビルドとデプロイ前の実機確認 (Post-Deployment Check)
 
 # 4. コンテキスト維持
 - `docs/context.md`: デザインの絶対的なルールブック。迷ったらここに戻る。

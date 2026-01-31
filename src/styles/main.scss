@@ -10,10 +10,21 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
     background-color: $color-bg;
     font-family: 'Inter', 'Noto Sans JP', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: $color-accent;
+    color: #111;
+}
+
+::-moz-selection {
+    background: $color-accent;
+    color: #111;
 }
